@@ -41,17 +41,23 @@ public class BombThrow_Re : MonoBehaviour
         return finalVelocity;
     }
     void OnCollisionEnter2D(Collision2D collision){
-        if(collision.gameObject.CompareTag("Player")){
-            if(!player.GetComponent<PlayerMovement>().ShieldCheck){
-                collision.gameObject.GetComponent<PlayerAttakced>().enabled = true;
-                collision.gameObject.GetComponent<PlayerAttakced>().isAtked = true;
-                Destroy(this.gameObject);
-            }
-            else{
+        if(collision.gameObject.name == "Player_idel-Sheet_0"){
+            Transform shield = collision.transform.Find("PencilShield");
+            if (shield != null && shield.gameObject.activeSelf){
                 Destroy(gameObject);
             }
+            else{
+                if(!player.GetComponent<PlayerMovement>().ShieldCheck){
+                    collision.gameObject.GetComponent<PlayerAttakced>().enabled = true;
+                    collision.gameObject.GetComponent<PlayerAttakced>().isAtked = true;
+                    Destroy(this.gameObject);
+                }
+                else{
+                    Destroy(gameObject);
+                }                
+            }
         }
-        else if(collision.gameObject.CompareTag("Ground")){
+        if(collision.gameObject.CompareTag("Ground")){
             Destroy(this.gameObject);
             Death();
         }

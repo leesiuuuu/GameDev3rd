@@ -14,9 +14,13 @@ public class ItemInventoryUI : MonoBehaviour
     }
     void Update(){
         if(GameManager.Instance.ItemList[0] == null){
+            RectTransform RT = Item1.GetComponent<RectTransform>();
+            RT.sizeDelta = new Vector2(100, 100);
             Item1.sprite = null;
         }
         if(GameManager.Instance.ItemList[1] == null){
+            RectTransform RT = Item2.GetComponent<RectTransform>();
+            RT.sizeDelta = new Vector2(100, 100);
             Item2.sprite = null;
         }
     }
@@ -33,6 +37,7 @@ public class ItemInventoryUI : MonoBehaviour
         {
             Item2.sprite = itemList[1].GetComponent<SpriteRenderer>().sprite;
         }
+        //슬롯 1 변경사항 확인
         if(Item1.sprite == GameManager.Instance.PaperShield.GetComponent<SpriteRenderer>().sprite)
         {
             RectTransform RT = Item1.GetComponent<RectTransform>();
@@ -41,6 +46,17 @@ public class ItemInventoryUI : MonoBehaviour
         if(Item1.sprite == GameManager.Instance.HotPack.GetComponent<SpriteRenderer>().sprite)
         {
             RectTransform RT = Item1.GetComponent<RectTransform>();
+            RT.sizeDelta = new Vector2(60, 100);
+        }
+        //슬롯 2 변경사항 확인
+        if(Item2.sprite == GameManager.Instance.PaperShield.GetComponent<SpriteRenderer>().sprite)
+        {
+            RectTransform RT = Item2.GetComponent<RectTransform>();
+            RT.sizeDelta = new Vector2(50, 100);
+        }
+        if(Item2.sprite == GameManager.Instance.HotPack.GetComponent<SpriteRenderer>().sprite)
+        {
+            RectTransform RT = Item2.GetComponent<RectTransform>();
             RT.sizeDelta = new Vector2(60, 100);
         }
     }

@@ -46,6 +46,7 @@ public class EnemyMovement : MonoBehaviour
             Vector3 moveVelocity = Vector3.zero;
             if (col.gameObject.CompareTag("Player"))
             {
+                moveVelocity = Vector3.zero;
                 Vector3 direction = col.transform.position - transform.position;
                 direction.Normalize();
                 if(direction.y <= 0.4f){

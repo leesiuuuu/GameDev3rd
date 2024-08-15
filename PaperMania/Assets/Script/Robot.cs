@@ -30,7 +30,7 @@ public class Robot : MonoBehaviour
     private Animator animator;
     void Start()
     {
-        if(GameManager.Instance.isRobot && !GameManager.Instance.isPoro){
+        if(GameManager.Instance.isRobot != 0 && GameManager.Instance.isPoro % 2 == 0){
             state = State.isRobot;
             animator = GetComponent<Animator>();
             alarm.SetActive(false);

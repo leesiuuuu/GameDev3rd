@@ -26,10 +26,16 @@ public class ItemPick : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.F)){
             foreach(Collider2D cols in collider2Ds){
                 if(cols.gameObject.CompareTag("Player")){
-                    GameManager.Instance.ItemAdd(gameObject);
-                    GameObject.Find("ItemBG").GetComponent<ItemInventoryUI>().InvenStart();
-                    Destroy(gameObject);
+                    if(GameManager.Instance.ItemList[0] == null || GameManager.Instance.ItemList[1] == null){
+                        GameManager.Instance.ItemAdd(gameObject);
+                        GameObject.Find("ItemBG").GetComponent<ItemInventoryUI>().InvenStart();
+                        Destroy(gameObject);
+                        break;                        
+                    }
+                else{
+                    Debug.Log("현재 인벤토리가 꽉 찼습니다!");
                     break;
+                }
                 }
             }
         }

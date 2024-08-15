@@ -13,6 +13,7 @@ TagManager:
   - Stage1
   - FadeScene
   - Item
+  - Shield
   layers:
   - Default
   - TransparentFX

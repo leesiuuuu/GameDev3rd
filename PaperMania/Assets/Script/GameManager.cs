@@ -22,8 +22,8 @@ public class GameManager : MonoBehaviour
     public float Speed = 1;
     public bool isStageClear = false;
     public bool isEnd = false;
-    public bool isRobot = false;
-    public bool isPoro = false;
+    public int isRobot = 10;
+    public int isPoro = 10;
     public GameObject PaperShield;
     public GameObject HotPack;
     public GameObject RandomBox;
@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour
     }
     public void StageCome(){
         if(StageCount != 1){
-            isPoro = (UnityEngine.Random.value > 0.5f);
-            isRobot = (UnityEngine.Random.value > 0.6f);
-            if(isRobot){
-                isPoro = false;
+            isPoro = UnityEngine.Random.Range(1, 11);
+            isRobot = UnityEngine.Random.Range(1, 11);
+            if(isRobot >= 7){
+                isPoro = 0;
             }
-            else if(isPoro){
-                isRobot = false;
+            else if(isPoro % 2 != 0){
+                isRobot = 0;
             }
         }
     }

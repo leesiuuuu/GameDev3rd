@@ -18,6 +18,7 @@ public class GameStart : MonoBehaviour
     void Start(){
         GameObject.Find("MySceneManager").GetComponent<SceneChanger>().StartSz();
         GameManager.Instance.StageCome();
+        GameObject.Find("ItemBG").GetComponent<ItemInventoryUI>().InvenStart();
         Invoke("Returnd", 1.5f);
     }
     void Returnd(){

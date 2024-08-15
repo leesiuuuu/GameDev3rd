@@ -7,7 +7,6 @@ using UnityEngine.Video;
 public class SceneCloseAndChange : MonoBehaviour
 {
     public bool Once = false;
-    public bool twice = false;
     void Start()
     {
         
@@ -35,6 +34,10 @@ public class SceneCloseAndChange : MonoBehaviour
                 break;
             case 3:
                 SceneManager.LoadScene("Stage3");
+                break;
+            case 4:
+                SceneManager.LoadScene("DemoEndingScene");
+                GameManager.Instance.StageCount = 1;
                 break;
         }
         Once = false;

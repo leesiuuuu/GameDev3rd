@@ -7,6 +7,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UIElements;
 using DG.Tweening;
+using UnityEditor.Rendering;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject JumpEffect;
     public GameObject SlowEffect;
     public GameObject SceneManager;
-    private List<EnemyMovement> slowedEnemies = new List<EnemyMovement>();
+    public List<EnemyMovement> slowedEnemies = new List<EnemyMovement>();
     private Rigidbody2D rigidbody;
     private Animator animator;
     Vector3 movement;
@@ -30,8 +32,11 @@ public class PlayerMovement : MonoBehaviour
     public bool BombAtked = false;
     public bool isSkilled2 = false;
     public GameObject Shield;
+    public GameObject HotPackEffect;
+    public GameObject EraserPowderEffect;
     public GameObject Volume;
     public Vector2 Size;
+    public Text uiText;
     public LayerMask EnemyLayer;
     //public GameObject Volume;
     void Start()
@@ -42,6 +47,9 @@ public class PlayerMovement : MonoBehaviour
         GetComponent<PlayerAutomove>().enabled = false;
         SlowEffect.SetActive(false);
         Shield.SetActive(false);
+        HotPackEffect.SetActive(false);
+        EraserPowderEffect.SetActive(false);
+        uiText.enabled = false;
     }
 
     // Update is called once per frame
@@ -112,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
             GetComponent<PlayerAutomove>().enabled = true;
         }
         // 아이템 적용
-        if(Input.GetKeyDown(KeyCode.S)){
+        if(Input.GetKeyDown(KeyCode.S) && !Pause.isGamePause){
             if(GameManager.Instance.ItemList[0].gameObject.name == "EraserPowder"){
                 //아이템 있을 시 실행
                 StartCoroutine(EraserSkillDuring(4f));
@@ -133,7 +141,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Coroutine is End!");
             }
             else if(GameManager.Instance.ItemList[0].gameObject.name == "RandomBox"){
-                StartCoroutine(RandomBoxDuring(20, false));
+                StartCoroutine(RandomBoxDuring(20, false, 1));
                 GameManager.Instance.ItemList.RemoveAt(0);
                 GameManager.Instance.ItemList.Insert(0, null);
                 Debug.Log("Coroutine is End!");
@@ -142,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Item is Null!");
             }
         }
-        if(Input.GetKeyDown(KeyCode.D)){
+        if(Input.GetKeyDown(KeyCode.D) && !Pause.isGamePause){
             if(GameManager.Instance.ItemList[1].gameObject.name == "EraserPowder"){
                 //아이템 있을 시 실행
                 StartCoroutine(EraserSkillDuring(4f));
@@ -163,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Coroutine is End!");
             }
             else if(GameManager.Instance.ItemList[1].gameObject.name == "RandomBox"){
-                StartCoroutine(RandomBoxDuring(20, false));
+                StartCoroutine(RandomBoxDuring(20, false, 1));
                 GameManager.Instance.ItemList.RemoveAt(1);
                 GameManager.Instance.ItemList.Insert(1, null);
                 Debug.Log("Coroutine is End!");
@@ -172,9 +180,10 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("Item is Null!");
             }
         }
-        CheckEnemiesInRange();
     }
-    IEnumerator RandomBoxDuring(float During, bool RandomOnce){
+    //랜덤 박스 구현 함수
+    IEnumerator RandomBoxDuring(float During, bool RandomOnce, float Delays){
+        yield return new WaitForSeconds(Delays);
         int RandomNum = 0;
         if(!RandomOnce){
             RandomNum = UnityEngine.Random.Range(1, 101);
@@ -183,21 +192,30 @@ public class PlayerMovement : MonoBehaviour
         if(RandomOnce){
             if(RandomNum > 0 && RandomNum <=30){
                 Debug.Log("CoolTime Low!");
+                uiText.enabled = true;
+                uiText.text = "스킬 쿨타임 감소!";
                 GameManager.Instance.Skill1CoolTime /= 2;
                 GameManager.Instance.Skill2CoolTime /= 2;
             }
             else if(RandomNum > 30 && RandomNum <= 70){
                 Debug.Log("Speed Up!");
+                uiText.enabled = true;
+                uiText.text = "이동 속도 증가!";
                 GameManager.Instance.Speed *= 1.3f;
             }
             else if(RandomNum > 70 && RandomNum <= 90){
                 Debug.Log("Damage Up!");
+                uiText.enabled = true;
+                uiText.text = "데미지 증가!";
                 GameManager.Instance.Damage *= 2;
             }
             else{
+                uiText.enabled = true;
+                uiText.text = "참격 데미지 증가!";
                 Debug.Log("Skill Damage Up!");
                 GameManager.Instance.SkillDamage *= 2;
             }
+            Invoke("returnTextEnable", 1f);
         }
         yield return new WaitForSeconds(During);
             if(RandomNum > 0 && RandomNum <=30){
@@ -215,7 +233,10 @@ public class PlayerMovement : MonoBehaviour
             }
         RandomNum = 0;
     }
-
+    void returnTextEnable(){
+        uiText.text = "";
+        uiText.enabled = false;
+    }
     //연필 방패(일시적 적 공격 방어) 구현 함수
     IEnumerator PencilShieldDuring(float During){
         Shield.SetActive(true);
@@ -229,10 +250,14 @@ public class PlayerMovement : MonoBehaviour
     }
     //핫팩(공격력 증가) 구현 함수
     IEnumerator HotPackDuring(float During){
+        if(!HotPackEffect.activeInHierarchy){
+            HotPackEffect.SetActive(true);
+        }
         GameManager.Instance.SkillDamage *= 2;
         GameManager.Instance.SKill2Damage *= 2;
         GameManager.Instance.Damage *= 2;
         yield return new WaitForSeconds(During);
+        HotPackEffect.SetActive(false);
         GameManager.Instance.SkillDamage /= 2;
         GameManager.Instance.SKill2Damage /= 2;
         GameManager.Instance.Damage /= 2;
@@ -240,6 +265,9 @@ public class PlayerMovement : MonoBehaviour
     //지우개 가루(적 이속 감소) 구현 함수
     IEnumerator EraserSkillDuring(float During){
         Debug.Log("Coroutine is Running!");
+        if(!EraserPowderEffect.activeInHierarchy){
+            EraserPowderEffect.SetActive(true);
+        }
         Collider2D[] SlowRange = Physics2D.OverlapBoxAll(PlayerBottomPosition.position, Size, 0);
         foreach(Collider2D cols in SlowRange){
             if(cols.gameObject.CompareTag("Enemy")){
@@ -255,6 +283,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }   
         yield return new WaitForSeconds(During);
+        EraserPowderEffect.SetActive(false);
         foreach(EnemyMovement EM in slowedEnemies){
             if(EM != null && EM.Slowed){
                 EM.SlowSpeed = 1f;
@@ -276,7 +305,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         for (int i = slowedEnemies.Count - 1; i >= 0; i--) {
-        EnemyMovement EM = slowedEnemies[i];
+            EnemyMovement EM = slowedEnemies[i];
             if (EM != null && !enemiesInCurrentRange.Contains(EM)) {
                 EM.SlowSpeed = 1f;  // 원래 속도로 복원
                 EM.Slowed = false;
