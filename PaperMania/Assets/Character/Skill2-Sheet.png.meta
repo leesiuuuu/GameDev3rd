@@ -1,0 +1,410 @@
+fileFormatVersion: 2
+guid: a7d3f13a8b1d7ce4baa726b9c72417da
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Skill2-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1503
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.21287508, y: 0.34229246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1da2bc4ca55e53343b110d13c2486541
+      internalID: -1475986268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1503
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.20951684, y: 0.3469309}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ec36b2576ab74c458a0fa606b5b666d
+      internalID: 682423152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 1503
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.20615877, y: 0.34461156}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 560822e1bf722fd4f9cc1d73df113559
+      internalID: -511822892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1002
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22446296, y: 0.3388774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caa2f792215bb684db78a8a71e02cede
+      internalID: 1117574670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 1002
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22245172, y: 0.33609954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29384a06df70c7746966c19cbbd56056
+      internalID: 2038197922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 1002
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22245163, y: 0.3388774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415ee9fb351babf4892154c4828f34b9
+      internalID: -1056589953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 501
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22373378, y: 0.3229425}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67873a2cb0a3e844b8a052c7f3861ab5
+      internalID: 319514125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 501
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22594377, y: 0.3107318}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb92450f0baca6428ad2ae3c04835b9
+      internalID: -1065277202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 501
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.23257428, y: 0.304626}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22feb4e995e5cd74abf5d3afe2fa3b2c
+      internalID: 572360759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 501
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.23257428, y: 0.3015736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc8e94a6a29e0c14f80dfa749b899349
+      internalID: 2005480427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22373378, y: 0.3443114}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b85ed587a166814481ed8634dd44281
+      internalID: -224826307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill2-Sheet_28
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 0
+        width: 692
+        height: 501
+      alignment: 9
+      pivot: {x: 0.22373371, y: 0.34431115}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188a258f25f6f18488349b421dbf8983
+      internalID: 861990734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 3ef16403324fac741a34127dec1f30a9
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Skill2-Sheet_0: -1475986268
+      Skill2-Sheet_1: 682423152
+      Skill2-Sheet_10: 1656575206
+      Skill2-Sheet_11: 1117574670
+      Skill2-Sheet_12: 2038197922
+      Skill2-Sheet_13: -1056589953
+      Skill2-Sheet_14: 549226786
+      Skill2-Sheet_15: 2071425086
+      Skill2-Sheet_16: -844649821
+      Skill2-Sheet_17: -1553039927
+      Skill2-Sheet_18: 1438232296
+      Skill2-Sheet_19: -113257722
+      Skill2-Sheet_2: -511822892
+      Skill2-Sheet_20: 918952690
+      Skill2-Sheet_21: 795675118
+      Skill2-Sheet_22: 319514125
+      Skill2-Sheet_23: -1065277202
+      Skill2-Sheet_24: 572360759
+      Skill2-Sheet_25: 2005480427
+      Skill2-Sheet_26: 1606660156
+      Skill2-Sheet_27: -224826307
+      Skill2-Sheet_28: 861990734
+      Skill2-Sheet_29: 1998422242
+      Skill2-Sheet_3: 167775494
+      Skill2-Sheet_30: 1786242486
+      Skill2-Sheet_4: -1489358446
+      Skill2-Sheet_5: 2087098634
+      Skill2-Sheet_6: 1915272750
+      Skill2-Sheet_7: -1829967126
+      Skill2-Sheet_8: -940417751
+      Skill2-Sheet_9: 866385062
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
