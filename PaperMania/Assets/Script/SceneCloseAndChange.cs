@@ -18,9 +18,9 @@ public class SceneCloseAndChange : MonoBehaviour
         if(GameManager.Instance.isStageClear && GameManager.Instance.isEnd){
             if(!Once){
                 GetComponent<SceneChanger>().StartEd();
+                Invoke("EndScene", 1.5f);
                 Once = true;
             }
-            Invoke("EndScene", 1.5f);
         }
     }
     void EndScene(){

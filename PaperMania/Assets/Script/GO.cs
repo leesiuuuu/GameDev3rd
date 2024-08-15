@@ -17,6 +17,8 @@ public class GO : MonoBehaviour
         Go.name = "Go";
         GO1 = Go.GetComponent<RectTransform>();
         Go.SetActive(false);
+        Once = false;
+        GameManager.Instance.isStageClear = false;
     }
 
     // Update is called once per frame
