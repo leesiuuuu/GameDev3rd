@@ -29,11 +29,7 @@ public class Attack : MonoBehaviour
                     GameManager.Instance.EnergyBar += 5;
                     isAttacked123 = true;
                 }
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 0.85f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 4, 20, false, true, ShakeRandomnessMode.Full);
-                }
-                AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
+                DamageAndEffect(0.85f, 4, 20);
                 AttackObject.GetComponent<EnemyMovement>().HP -= GameManager.Instance.Damage;
                 Debug.Log("HP : " + AttackObject.GetComponent<EnemyMovement>().HP);
             }
@@ -42,11 +38,7 @@ public class Attack : MonoBehaviour
                     GameManager.Instance.EnergyBar += 5;
                     isAttacked123 = true;
                 }
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 0.85f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 4, 20, false, true, ShakeRandomnessMode.Full);
-                }
-                AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
+                DamageAndEffect(0.85f, 4, 20);
                 AttackObject.GetComponent<Hunter>().HP-=GameManager.Instance.Damage;
                 Debug.Log("HP : " + AttackObject.GetComponent<Hunter>().HP);
             }
@@ -54,19 +46,13 @@ public class Attack : MonoBehaviour
         //스킬1
         if(Skilled && Skill123){
             if(AttackObject.CompareTag("Enemy")){//슬라임에게 맞췄을 시
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 1.1f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 8, 40, false, true, ShakeRandomnessMode.Full);
-                }
+                DamageAndEffect(1.1f, 8, 40);
                 AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
                 AttackObject.GetComponent<EnemyMovement>().HP-=GameManager.Instance.SkillDamage;
                 Debug.Log("HP : " + AttackObject.GetComponent<EnemyMovement>().HP);
             }
             else if(AttackObject.CompareTag("Hunter")){//사냥꾼에게 맞췄을 시
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 1.1f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 8, 40, false, true, ShakeRandomnessMode.Full);
-                }
+                DamageAndEffect(1.1f, 8, 40);
                 AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
                 AttackObject.GetComponent<Hunter>().HP-=GameManager.Instance.SkillDamage;
                 Debug.Log("HP : " + AttackObject.GetComponent<Hunter>().HP);
@@ -74,19 +60,13 @@ public class Attack : MonoBehaviour
         }
         if(isSkilled2){//방어 스킬을 맞았을 시
             if(AttackObject.CompareTag("Enemy")){//슬라임에게 맞췄을 시
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 1.4f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 8, 60, false, true, ShakeRandomnessMode.Full);
-                }
+                DamageAndEffect(1.4f, 8, 60);
                 AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
                 AttackObject.GetComponent<EnemyMovement>().HP-=GameManager.Instance.SKill2Damage;
                 Debug.Log("HP : " + AttackObject.GetComponent<EnemyMovement>().HP);
             }
             else if(AttackObject.CompareTag("Hunter")){//사냥꾼에게 맞췄을 시
-                AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * 1.4f;
-                if(AttackObject.transform != null){
-                    AttackObject.transform.DOShakePosition(0.2f, 0.3f, 8, 60, false, true, ShakeRandomnessMode.Full);
-                }
+                DamageAndEffect(1.4f, 8, 60);
                 AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
                 AttackObject.GetComponent<Hunter>().HP-=GameManager.Instance.SKill2Damage;
                 Debug.Log("HP : " + AttackObject.GetComponent<Hunter>().HP);
@@ -169,5 +149,12 @@ public class Attack : MonoBehaviour
     }
     void Skill2True(){
         isSkilled2 = true;
+    }
+    void DamageAndEffect(float Speed1, int Vibrato1, float Randomness){
+        AttackObject.transform.position += (AttackObject.transform.localScale.x > 0 ? Vector3.right : Vector3.left) * Speed1;
+        if(AttackObject.transform != null){
+            AttackObject.transform.DOShakePosition(0.2f, 0.3f, Vibrato1, Randomness, false, true, ShakeRandomnessMode.Full);
+        }
+        AttackObject.GetComponent<Animator>().SetTrigger("Attacked");
     }
 }

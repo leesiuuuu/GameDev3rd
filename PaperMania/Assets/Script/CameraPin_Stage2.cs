@@ -28,8 +28,10 @@ public class CameraPin_Stage2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //카메라 고정
         Cameramove = Ray.GetComponent<Raycast>().Come;
         Camera camera = Camera.GetComponent<Camera>();
+        //전투 웨이브인지 확인
         if(Cameramove){
             Invoke("SpawnEnemy", 0.6f);
             DOTween.To(() => camera.orthographicSize, x => camera.orthographicSize = x, 13f, 0.8f);
@@ -37,6 +39,7 @@ public class CameraPin_Stage2 : MonoBehaviour
             Camera.GetComponent<SmoothCameraFollow>().enabled = false;
             gameObject.GetComponent<CamerWindowPin>().enabled = true;
             Camera.transform.DOMove(this.transform.position, 0.8f, false);
+            //지속적으로 리스트에 오브젝트가 있나 확인
             for(int i = EnemyList.Count -1; i >= 0; i--){
                 if(EnemyList[i] == null || !EnemyList[i].activeInHierarchy){
                     EnemyList.RemoveAt(i);
@@ -116,19 +119,23 @@ public class CameraPin_Stage2 : MonoBehaviour
             }
         }
     }
+    //페이즈 추가 함수
     void DelayMob(){
         Faze++;
         Faze1 = false;
         return;
     }
+    //몹 스폰 함수
     void SpawnEnemy(){
         if(!isSpawn){
+            //Enemy 적 생성
             for(int i = 1; i <= 4; i++){
                 GameObject Clone = Instantiate(Enemy);
                 Clone.name = "Enemy" + i;
                 Clone.GetComponent<CameraWindowPin_Slime>().enabled = true;
                 Clone.GetComponent<EnemyMovement>().Range = 25;
                 Clone.GetComponent<EnemyMovement>().Speed = 2.5f;
+                //위치 변경
                 if(i == 1 || i == 2){
                     Clone.transform.localScale = new Vector3(-1.58f, 1.58f, 1.58f);
                     Clone.transform.position = new Vector3(-65.1f + Addnum, -1.3f, 19f);
@@ -143,7 +150,9 @@ public class CameraPin_Stage2 : MonoBehaviour
                 }
                 EnemyList.Add(Clone);
             }
+            //초기화
             Addnum = 0;
+            //Hunter 적 생성
             for(int i = 0; i < 2; i++){
                 GameObject Clone = Instantiate(Hunter);
                 Clone.name = "Hunter" + i;
