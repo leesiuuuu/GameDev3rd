@@ -1,2 +1,5 @@
 # GameDev3rd
- This Game is DEMO
+## PaperMania!
+**THIS GAME IS DEMO!**
+
+if you want play full game, Plz **Donate to me!**
